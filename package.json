@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/js/index.js",
   "scripts": {
-    "build": "webpack --config webpack/prod.js ",
+    "build": "webpack --config webpack/production.js ",
     "start": "webpack-dev-server --config webpack/base.js --open",
     "test": "jest"
   },
@@ -14,24 +14,24 @@
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "babel-loader": "^8.1.0",
-    "clean-webpack-plugin": "^3.0.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "file-loader": "^4.3.0",
-    "html-webpack-plugin": "^3.2.0",
     "raw-loader": "^3.1.0",
     "stylelint": "^13.3.3",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-csstree-validator": "^1.8.0",
     "stylelint-scss": "^3.17.2",
-    "terser-webpack-plugin": "^2.3.8",
-    "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0",
-    "webpack-merge": "^4.2.2"
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "terser-webpack-plugin": "^2.3.8",
+    "webpack-merge": "^4.2.2",
+    "webpack": "^4.44.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^3.2.0",
     "phaser": "^3.24.1"
   }
 }

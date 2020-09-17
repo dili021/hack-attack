@@ -5,7 +5,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  devtool: 'eval-source-map',
+  entry: './src/js/index.js',
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -13,6 +14,11 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
+        },
+        options: {
+          presets: [
+            '@babel/preset-env',
+          ],
         },
       },
       {
