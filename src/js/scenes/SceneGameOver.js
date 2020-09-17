@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 import Phaser from 'phaser';
 import ScrollingBackground from '../GameObjects/ScrollingBackground';
 
@@ -58,12 +59,8 @@ export default class SceneGameOver extends Phaser.Scene {
       this,
     );
     this.backgrounds = [];
-    for (let i = 0; i < 5; i += 1) {
-      const keys = ['sprBg0', 'sprBg1'];
-      const key = keys[Phaser.Math.Between(0, keys.length - 1)];
-      const bg = new ScrollingBackground(this, key, i * 10);
-      this.backgrounds.push(bg);
-    }
+    const bg = new ScrollingBackground(this, 'background', 0);
+    this.backgrounds.push(bg);
   }
 
   update() {

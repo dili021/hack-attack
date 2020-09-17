@@ -8,8 +8,7 @@ export default class SceneMainMenu extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('sprBg0', 'src/assets/Matrix_large.jpg');
-    // this.load.image('sprBg1', 'src/assets/sprBg1.png');
+    this.load.image('sprBg0', 'src/assets/Matrix_large.png');
     this.load.image('sprBtnPlay', 'src/assets/sprBtnPlay.png');
     this.load.image('sprBtnPlayHover', 'src/assets/sprBtnPlayHover.png');
     this.load.image('sprBtnPlayDown', 'src/assets/sprBtnPlayDown.png');

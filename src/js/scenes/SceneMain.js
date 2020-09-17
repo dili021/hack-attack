@@ -12,16 +12,12 @@ export default class SceneMain extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('sprBg0', 'src/assets/Matrix_large.jpg');
-    // this.load.image('sprBg1', 'src/assets/sprBg1.png');
+    this.load.image('background', 'src/assets/Matrix_large.png');
     this.load.spritesheet('sprExplosion', 'src/assets/sprExplosion.png', {
       frameWidth: 32,
       frameHeight: 32,
     });
-    this.load.spritesheet('sprEnemy0', 'src/assets/sprEnemy0.png', {
-      frameWidth: 16,
-      frameHeight: 16,
-    });
+    this.load.image('sprEnemy0', 'src/assets/bug.png');
     this.load.image('sprEnemy1', 'src/assets/sprEnemy1.png');
     this.load.spritesheet('sprEnemy2', 'src/assets/sprEnemy2.png', {
       frameWidth: 16,
@@ -44,8 +40,7 @@ export default class SceneMain extends Phaser.Scene {
       laser: this.sound.add('sndLaser'),
     };
     this.backgrounds = [];
-    // for (let i = 0; i < 5; i += 1) {
-    const bg = new ScrollingBackground(this, 'sprBg0', 0);
+    const bg = new ScrollingBackground(this, 'background', 0);
     this.backgrounds.push(bg);
 
     this.player = new Player(
@@ -75,6 +70,7 @@ export default class SceneMain extends Phaser.Scene {
             this,
             Phaser.Math.Between(0, this.game.config.width),
             0,
+
           );
         } else if (Phaser.Math.Between(0, 10) >= 5) {
           if (this.getEnemiesByType('ChaserShip').length < 5) {
@@ -131,13 +127,6 @@ export default class SceneMain extends Phaser.Scene {
         player.onDestroy();
         laser.destroy();
       }
-    });
-
-    this.anims.create({
-      key: 'sprEnemy0',
-      frames: this.anims.generateFrameNumbers('sprEnemy0'),
-      frameRate: 20,
-      repeat: -1,
     });
 
     this.anims.create({
