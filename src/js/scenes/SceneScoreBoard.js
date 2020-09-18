@@ -1,22 +1,24 @@
 /* eslint-disable func-names */
 import Phaser from 'phaser';
-// import setScore from '../scoreQuery';
+import { getScore } from '../scoreQuery';
 import ScrollingBackground from '../GameObjects/ScrollingBackground';
 
-export default class SceneGameOver extends Phaser.Scene {
+export default class SceneScoreBoard extends Phaser.Scene {
   constructor() {
-    super({ key: 'SceneGameOver' });
+    super({ key: 'SceneScoreBoard' });
   }
 
   create() {
-    this.title = this.add.text(this.game.config.width * 0.5, 128, 'GAME OVER', {
-      fontFamily: 'monospace',
-      fontSize: 48,
-      fontStyle: 'bold',
-      color: '#ffffff',
-      align: 'center',
-    });
-    this.title.setOrigin(0.5);
+    getScore().then(scores => {
+      scores.sort((a, b) => b.score - a.score);
+      this.add.text(30, 20, 'RANK  SCORE   NAME', { fontStyle: 'bold' });
+      for (let i = 0; i < 5; i += 1) {
+        this.add.text(30, 70 * (i + 1), ` ${i + 1}     ${scores[i].score}   ${scores[i].user}`, { fontStyle: 'bold' });
+      }
+    }).catch(e => e);
+    this.backgrounds = [];
+    const bg = new ScrollingBackground(this, 'sprBg0', 10);
+    this.backgrounds.push(bg);
     this.sfx = {
       btnOver: this.sound.add('sndBtnOver'),
       btnDown: this.sound.add('sndBtnDown'),
@@ -57,14 +59,5 @@ export default class SceneGameOver extends Phaser.Scene {
       },
       this,
     );
-    this.backgrounds = [];
-    const bg = new ScrollingBackground(this, 'sprBg0', 0);
-    this.backgrounds.push(bg);
-  }
-
-  update() {
-    for (let i = 0; i < this.backgrounds.length; i += 1) {
-      this.backgrounds[i].update();
-    }
   }
 }

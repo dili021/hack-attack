@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-
+// import getScore from '../scoreQuery';
 import Player from '../GameObjects/Player';
 import GunShip from '../GameObjects/GunShip';
 import CarrierShip from '../GameObjects/CarrierShip';
@@ -32,6 +32,10 @@ export default class SceneMain extends Phaser.Scene {
   }
 
   create() {
+    let score = 0;
+    window.localStorage.setItem('score', JSON.stringify(score));
+    const scoreBoard = this.add.text(30, 30, `score: ${score}`, { fontSize: '32px', fill: '#fafafa' });
+
     this.sfx = {
       explosions: [
         this.sound.add('sndExplode0'),
@@ -106,6 +110,9 @@ export default class SceneMain extends Phaser.Scene {
         }
         enemy.explode(true);
         playerLaser.destroy();
+        score += 10;
+        scoreBoard.setText(`Score: ${score}`);
+        window.localStorage.setItem('score', JSON.stringify(score));
       }
     });
     this.physics.add.overlap(this.player, this.enemies, (

@@ -15,7 +15,7 @@ export default class SceneMainMenu extends Phaser.Scene {
     this.load.image('sprBtnRestart', 'src/assets/sprBtnRestart.png');
     this.load.image('sprBtnRestartHover', 'src/assets/sprBtnRestartHover.png');
     this.load.image('sprBtnRestartDown', 'src/assets/sprBtnRestartDown.png');
-
+    this.load.html('form', 'src/assets/input/form.html');
     this.load.audio('sndBtnOver', 'src/assets/sndBtnOver.wav');
     this.load.audio('sndBtnDown', 'src/assets/sndBtnDown.wav');
   }
@@ -34,8 +34,8 @@ export default class SceneMainMenu extends Phaser.Scene {
     this.btnPlay.on(
       'pointerover',
       function () {
-        this.btnPlay.setTexture('sprBtnPlayHover'); // set the button texture to sprBtnPlayHover
-        this.sfx.btnOver.play(); // play the button over sound
+        this.btnPlay.setTexture('sprBtnPlayHover');
+        this.sfx.btnOver.play();
       },
       this,
     );
@@ -72,15 +72,7 @@ export default class SceneMainMenu extends Phaser.Scene {
     );
     this.title.setOrigin(0.5);
     this.backgrounds = [];
-    // this.backgrounds = [];
-    // for (let i = 0; i < 5; i += 1) {
     const bg = new ScrollingBackground(this, 'sprBg0', 10);
     this.backgrounds.push(bg);
   }
-
-  // update() {
-  //   for (let i = 0; i < this.backgrounds.length; i += 1) {
-  //     this.backgrounds[i].update();
-  //   }
-  // }
 }

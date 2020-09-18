@@ -29,17 +29,16 @@ export default class Player extends Entity {
 
   update() {
     this.body.setVelocity(0, 0);
-    this.x = Phaser.Math.Clamp(this.x, 0, this.scene.game.config.width);
-    this.y = Phaser.Math.Clamp(this.y, 0, this.scene.game.config.height);
+    this.x = Phaser.Math.Clamp(this.x, 10, this.scene.game.config.width - 15);
+    this.y = Phaser.Math.Clamp(this.y, 10, this.scene.game.config.height - 10);
     if (this.getData('isShooting')) {
       if (this.getData('timerShootTick') < this.getData('timerShootDelay')) {
-        this.setData('timerShootTick', this.getData('timerShootTick') + 1); // every game update, increase timerShootTick by one until we reach the value of timerShootDelay
+        this.setData('timerShootTick', this.getData('timerShootTick') + 1);
       } else {
-        // when the "manual timer" is triggered:
         const laser = new PlayerLaser(this.scene, this.x + 10, this.y - 33);
         this.scene.playerLasers.add(laser);
 
-        this.scene.sfx.laser.play(); // play the laser sound effect
+        this.scene.sfx.laser.play();
         this.setData('timerShootTick', 0);
       }
     }
@@ -47,10 +46,9 @@ export default class Player extends Entity {
 
   onDestroy() {
     this.scene.time.addEvent({
-      // go to game over scene
       delay: 1000,
       callback() {
-        this.scene.scene.start('SceneGameOver');
+        this.scene.scene.start('SceneInputScore');
       },
       callbackScope: this,
       loop: false,
