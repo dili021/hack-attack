@@ -1,8 +1,6 @@
 import Phaser from 'phaser';
 import Player from '../GameObjects/Player';
 import GunShip from '../GameObjects/GunShip';
-import CarrierShip from '../GameObjects/CarrierShip';
-import ChaserShip from '../GameObjects/ChaserShip';
 import ScrollingBackground from '../GameObjects/ScrollingBackground';
 
 export default class SceneMain extends Phaser.Scene {
@@ -67,30 +65,12 @@ export default class SceneMain extends Phaser.Scene {
       delay: 1000,
       callback() {
         let enemy = null;
+        enemy = new GunShip(
+          this,
+          Phaser.Math.Between(0, this.game.config.width),
+          0,
 
-        if (Phaser.Math.Between(0, 10) >= 3) {
-          enemy = new GunShip(
-            this,
-            Phaser.Math.Between(0, this.game.config.width),
-            0,
-
-          );
-        } else if (Phaser.Math.Between(0, 10) >= 5) {
-          if (this.getEnemiesByType('ChaserShip').length < 5) {
-            enemy = new ChaserShip(
-              this,
-              Phaser.Math.Between(0, this.game.config.width),
-              0,
-            );
-          }
-        } else {
-          enemy = new CarrierShip(
-            this,
-            Phaser.Math.Between(0, this.game.config.width),
-            0,
-          );
-        }
-
+        );
         if (enemy !== null) {
           enemy.setScale(Phaser.Math.Between(10, 20) * 0.1);
           this.enemies.add(enemy);
