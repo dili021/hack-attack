@@ -9,6 +9,8 @@ export default class SceneScoreBoard extends Phaser.Scene {
   }
 
   create() {
+    const music = this.sound.add('scoreMusic');
+    music.play({ loop: true });
     getScore().then(scores => {
       scores.sort((a, b) => b.score - a.score);
       this.add.text(30, 20, 'RANK  SCORE   NAME', { fontStyle: 'bold' });
@@ -45,9 +47,10 @@ export default class SceneScoreBoard extends Phaser.Scene {
     this.btnRestart.on(
       'pointerdown',
       function () {
+        music.stop();
         this.btnRestart.setTexture('sprBtnRestartDown');
         this.sfx.btnDown.play();
-        this.scene.start('SceneMain');
+        this.scene.start('SceneMainMenu');
       },
       this,
     );

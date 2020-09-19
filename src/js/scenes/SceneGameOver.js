@@ -1,6 +1,5 @@
 /* eslint-disable func-names */
 import Phaser from 'phaser';
-// import setScore from '../scoreQuery';
 import ScrollingBackground from '../GameObjects/ScrollingBackground';
 
 export default class SceneGameOver extends Phaser.Scene {

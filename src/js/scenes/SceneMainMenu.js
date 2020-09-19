@@ -7,24 +7,14 @@ export default class SceneMainMenu extends Phaser.Scene {
     super({ key: 'SceneMainMenu' });
   }
 
-  preload() {
-    this.load.image('sprBg0', 'src/assets/Matrix_large.png');
-    this.load.image('sprBtnPlay', 'src/assets/sprBtnPlay.png');
-    this.load.image('sprBtnPlayHover', 'src/assets/sprBtnPlayHover.png');
-    this.load.image('sprBtnPlayDown', 'src/assets/sprBtnPlayDown.png');
-    this.load.image('sprBtnRestart', 'src/assets/sprBtnRestart.png');
-    this.load.image('sprBtnRestartHover', 'src/assets/sprBtnRestartHover.png');
-    this.load.image('sprBtnRestartDown', 'src/assets/sprBtnRestartDown.png');
-    this.load.html('form', 'src/assets/input/form.html');
-    this.load.audio('sndBtnOver', 'src/assets/sndBtnOver.wav');
-    this.load.audio('sndBtnDown', 'src/assets/sndBtnDown.wav');
-  }
-
   create() {
+    const music = this.sound.add('menuMusic');
+    music.play({ loop: true });
     this.sfx = {
       btnOver: this.sound.add('sndBtnOver'),
       btnDown: this.sound.add('sndBtnDown'),
     };
+
     this.btnPlay = this.add.sprite(
       this.game.config.width * 0.5,
       this.game.config.height * 0.5,
@@ -53,6 +43,7 @@ export default class SceneMainMenu extends Phaser.Scene {
     this.btnPlay.on(
       'pointerup',
       function () {
+        music.stop();
         this.btnPlay.setTexture('sprBtnPlay');
         this.scene.start('SceneMain');
       },

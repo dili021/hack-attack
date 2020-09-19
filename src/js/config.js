@@ -1,4 +1,6 @@
 import Phaser from 'phaser';
+import SceneBoot from './scenes/SceneBoot';
+import ScenePreload from './scenes/ScenePreload';
 import SceneMainMenu from './scenes/SceneMainMenu';
 import SceneMain from './scenes/SceneMain';
 import SceneGameOver from './scenes/SceneGameOver';
@@ -21,7 +23,10 @@ export default {
   dom: {
     createContainer: true,
   },
-  scene: [SceneMainMenu, SceneMain, SceneInputScore, SceneScoreBoard, SceneGameOver],
+  scene: [
+    SceneBoot, ScenePreload, SceneMainMenu,
+    SceneMain, SceneInputScore, SceneScoreBoard, SceneGameOver,
+  ],
   pixelArt: true,
   roundPixels: true,
 };
