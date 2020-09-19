@@ -92,11 +92,7 @@ export default class PreloaderScene extends Phaser.Scene {
       frameHeight: 32,
     });
     this.load.image('sprEnemy0', 'src/assets/bug.png');
-    this.load.image('sprEnemy1', 'src/assets/sprEnemy1.png');
-    this.load.spritesheet('sprEnemy2', 'src/assets/sprEnemy2.png', {
-      frameWidth: 16,
-      frameHeight: 16,
-    });
+
     this.load.image('sprLaserEnemy0', 'src/assets/sprLaserEnemy0.png');
     this.load.image('sprLaserPlayer', 'src/assets/player_laser.png');
     this.load.image('sprPlayer', 'src/assets/player_avatar.png');
