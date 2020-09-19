@@ -15,9 +15,15 @@ export default class SceneMainMenu extends Phaser.Scene {
       btnDown: this.sound.add('sndBtnDown'),
     };
 
+    this.gameControls = this.add.text(this.game.config.width * 0.25,
+      this.game.config.height * 0.5, 'Movement: W A S D\n\nShoot: Spacebar', {
+        fontSize: 24,
+        fontStyle: 'bold',
+      });
+
     this.btnPlay = this.add.sprite(
       this.game.config.width * 0.5,
-      this.game.config.height * 0.5,
+      this.game.config.height * 0.8,
       'sprBtnPlay',
     );
     this.btnPlay.setInteractive();
@@ -49,6 +55,7 @@ export default class SceneMainMenu extends Phaser.Scene {
       },
       this,
     );
+
     this.title = this.add.text(
       this.game.config.width * 0.5,
       128,
