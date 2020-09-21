@@ -1,6 +1,6 @@
 # Hack Attack!
 
-This Project represents my attempt to create an online endless shooter game made with [Phaser.js](https://phaser.io/), A JavaScript framework for building games that utilizes the HTML canvas element. It utilizes an external API to hold the high scores, which are displayed when the player dies. Check out the [Game design document](gamedesigndocument.md) to learn more about the process.
+This Project represents my attempt to create an online endless shooter game made with [Phaser.js](https://phaser.io/), A JavaScript framework for building games that utilizes the HTML canvas element. It utilizes an external API to hold the high scores, which are displayed when the player dies. Check out the [Game design document](https://github.com/dili021/hack-attack/blob/feature/GameDesignDocument.md) to learn more about the process.
 
 ![image](https://user-images.githubusercontent.com/55356496/93760928-314b1500-fc0d-11ea-8413-9ff3a7fadef9.png)
 ![image](https://user-images.githubusercontent.com/55356496/93760954-41fb8b00-fc0d-11ea-910c-b77137af94a2.png)
@@ -52,10 +52,10 @@ Feel free to check the [issues page](https://github.com/dili021/hack-attack/issu
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
-[Jared York](https://github/jaredyork) - Phaser.js space shooter
-[Assets](https://opengameart.org/) - OpenGameArt
-[Phaser3](https://phaser.io/phaser3) & [Phaser Template](https://github.com/rammazzoti2000/phaser_toolbox)
-[Microverse](https://www.microverse.org/)
+- [Jared York](https://github/jaredyork) - Phaser.js space shooter
+- [Assets](https://opengameart.org/) - OpenGameArt
+- [Phaser3](https://phaser.io/phaser3) & [Phaser Template](https://github.com/rammazzoti2000/phaser_toolbox)
+- [Microverse](https://www.microverse.org/)
 
 ## 📝 License
 
