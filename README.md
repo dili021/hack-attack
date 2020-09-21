@@ -19,7 +19,6 @@ This Project represents my attempt to create an online endless shooter game made
 ## Live Demo
 
 - [Play online](https://dili021.github.io/hack-attack/)
--
 ## Setup
 
 To get a local copy up and running follow these simple example steps:
