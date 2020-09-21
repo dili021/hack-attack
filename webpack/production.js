@@ -1,5 +1,6 @@
 const merge = require('webpack-merge');
 const TerserPlugin = require('terser-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const base = require('./base');
 
 module.exports = merge(base, {
@@ -20,6 +21,11 @@ module.exports = merge(base, {
             comments: false,
           },
         },
+      }),
+      new CopyWebpackPlugin({
+        patterns: [
+          { from: 'assets', to: 'assets' },
+        ],
       }),
     ],
   },
